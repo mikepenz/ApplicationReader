@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primaryColor">#9c27b0</color>
+    <color name="primaryLightColor">#d05ce3</color>
+    <color name="primaryDarkColor">#6a0080</color>
+    <color name="secondaryColor">#1565c0</color>
+    <color name="secondaryLightColor">#5e92f3</color>
+    <color name="secondaryDarkColor">#003c8f</color>
+
+    <color name="primaryTextColor">#000</color>
+    <color name="secondaryTextColor">#010101</color>
+
+    <!-- Theme colors -->
+    <color name="theme_window_background">#ECECEC</color>
+
+    <!-- general text colors -->
+    <color name="hint">#B8B8B8</color>
+    <color name="dividers">#DADADA</color>
+
+    <!-- general colors for drawer -->
+    <color name="list_background">#F2F2F2</color>
+    <!-- primary colors for drawer -->
+    <color name="list_background_normal">#FCFCFC</color>
+    <!-- secondary colors for drawer -->
+    <color name="list_background_secondary_normal">#F2F2F2</color>
+
+    <!-- MaterialDrawer -->
+    <color name="material_drawer_selected">#1F9c27b0</color>
+    <color name="material_drawer_selected_text">#9c27b0</color>
+</resources>

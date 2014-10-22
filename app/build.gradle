@@ -1,0 +1,65 @@
+apply plugin: 'com.android.application'
+//wrap with try and catch so the build is working even if the signing stuff is missing
+try {
+    apply from: '../../../signing.gradle'
+} catch (ignored) {
+}
+
+
+android {
+    compileSdkVersion 28
+    buildToolsVersion "28.0.3"
+    useLibrary 'org.apache.http.legacy'
+
+    defaultConfig {
+        applicationId 'com.mikepenz.applicationreader'
+        minSdkVersion 19
+        targetSdkVersion 28
+        versionCode 300
+        versionName "3.0.0"
+
+        vectorDrawables.useSupportLibrary = true
+
+        setProperty("archivesBaseName", "ApplicationReader-v$versionName-c$versionCode")
+    }
+
+    buildTypes {
+        debug {
+            applicationIdSuffix = ".debug"
+            versionNameSuffix = "-DEBUG"
+            try {
+                signingConfig signingConfigs.debugs
+            } catch (ignored) {
+            }
+            minifyEnabled false
+        }
+        release {
+            try {
+                signingConfig signingConfigs.release
+            } catch (ignored) {
+            }
+            zipAlignEnabled true
+            minifyEnabled false
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation "com.google.android.material:material:1.1.0-alpha05"
+    implementation "androidx.constraintlayout:constraintlayout:2.0.0-alpha4"
+
+    implementation "com.mikepenz:materialdrawer:6.1.2"
+    implementation "com.mikepenz:aboutlibraries:6.2.3"
+    implementation 'com.mikepenz:fastadapter:3.3.1'
+
+    implementation 'com.mikepenz:fontawesome-typeface:5.0.6.0@aar'
+}
